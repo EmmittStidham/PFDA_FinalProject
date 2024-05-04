@@ -40,6 +40,22 @@ class Maze:
         pygame.draw.rect(screen, RED, (self.end[0] * CELL_SIZE, self.end[1] * CELL_SIZE, CELL_SIZE, CELL_SIZE))
 
 class Player:
+    def __init__(self, maze):
+        self.maze = maze
+        self.x, self.y = maze.start
+        self.image = pygame.Surface((CELL_SIZE, CELL_SIZE))
+        self.image.fill(GREEN)
+
+    def move(self, dx, dy):
+        if self.maze.is_valid_move(self.x + dx, self.y + dy):
+            self.x += dx
+            self.y += dy
+
+    def draw(self, screen):
+        screen.blit(self.image, (self.x * CELL_SIZE, self.y * CELL_SIZE))
+
+    def is_at_end(self):
+        return (self.x, self.y) == self.maze.end
 
 def main():
     pygame.init()
