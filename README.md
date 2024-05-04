@@ -4,7 +4,7 @@
 Demo Video: <URL>
 
 ## GitHub Repository
-GitHub Repo: <URL>
+GitHub Repo: <https://github.com/EmmittStidham/PFDA_FinalProject.git>
 
 ## Description
 This Program uses the pygame and random libraries to generate a random maze, which the user can interact with. The user starts
