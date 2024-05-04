@@ -39,6 +39,9 @@ class Maze:
                     pygame.draw.rect(screen, WHITE, (x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE))
         pygame.draw.rect(screen, RED, (self.end[0] * CELL_SIZE, self.end[1] * CELL_SIZE, CELL_SIZE, CELL_SIZE))
 
+    def is_valid_move(self, x, y):
+        return 0 < x < COLS and 0 < y < ROWS and self.grid[y][x] != 0
+
 class Player:
     def __init__(self, maze):
         self.maze = maze
