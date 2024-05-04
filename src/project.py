@@ -42,6 +42,22 @@ class Maze:
 class Player:
 
 def main():
+    pygame.init()
+    screen = pygame.display.set_mode((WIDTH - 20, HEIGHT - 20))
+    pygame.display.set_caption("Maze Game")
+    clock = pygame.time.Clock()
+    player_name = input("Insert Player's Name:")
+
+    maze = Maze()
+    player = Player(maze)
+
+    start_time = pygame.time.get_ticks()
+
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
 
 
 if __name__ == "__main__":
