@@ -70,10 +70,47 @@ def main():
     start_time = pygame.time.get_ticks()
 
     running = True
+    move_cooldown = 0
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+
+        keys = pygame.key.get_pressed()
+        if move_cooldown == 0:
+            if keys[pygame.K_UP]:
+                player.move(0, -1)
+                move_cooldown = 5
+            elif keys[pygame.K_DOWN]:
+                player.move(0, 1)
+                move_cooldown = 5
+            elif keys[pygame.K_LEFT]:
+                player.move(-1, 0)
+                move_cooldown = 5
+            elif keys[pygame.K_RIGHT]:
+                player.move(1, 0)
+                move_cooldown = 5
+
+        if move_cooldown > 0:
+            move_cooldown -= 1
+        
+        screen.fill(BLACK)
+        maze.draw(screen)
+        player.draw(screen)
+        pygame.display.flip()
+
+        if player.is_at_end():
+            end_time = pygame.time.get_ticks()
+            elapsed_time_seconds = int((end_time - start_time) / 1000)
+            print(f"Congratulations! You reached the end of the maze in {elapsed_time_seconds} seconds!")
+            final_score = SCORE - (80*elapsed_time_seconds)
+            print(f"{player_name}'s final score is", final_score, "!")
+            running = False
+
+        clock.tick(30)
+
+    pygame.quit()
+
 
 
 if __name__ == "__main__":
