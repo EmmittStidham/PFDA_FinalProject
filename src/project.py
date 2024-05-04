@@ -12,6 +12,11 @@ RED = (255, 0, 0)
 SCORE = 10000
 
 class Maze:
+    def __init__(self):
+        self.grid = [[0 for _ in range(COLS)] for _ in range(ROWS)]
+        self.generate_maze()
+        self.start = (1, 1)
+        self.end = (ROWS - 2, COLS - 2)
 
 class Player:
 
