@@ -1,7 +1,7 @@
 # Maze Game
 
 ## Demo Video
-Demo Video: <URL>
+Demo Video: <https://youtu.be/oW2OkS_lMt4>
 
 ## GitHub Repository
 GitHub Repo: <https://github.com/EmmittStidham/PFDA_FinalProject.git>
